@@ -1,11 +1,14 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import './StarWarsOpening.css';
 
 const StarWarsOpening: React.FC = () => {
+  const navigate = useNavigate();
   const audioRef = useRef<HTMLAudioElement>(null);
   const startRef = useRef<HTMLDivElement>(null);
   const animationRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const titlesRef = useRef<HTMLDivElement>(null);
   const [isStarted, setIsStarted] = useState(false);
 
   useEffect(() => {
@@ -13,14 +16,21 @@ const StarWarsOpening: React.FC = () => {
     const start = startRef.current;
     const animation = animationRef.current;
     const container = containerRef.current;
+    const titles = titlesRef.current;
 
-    if (!audio || !start || !animation || !container) return;
+    if (!audio || !start || !animation || !container || !titles) return;
 
     const handleStartClick = () => {
       setIsStarted(true);
       start.style.display = 'none';
       audio.play();
       container.appendChild(animation);
+      
+      // Detecta quando a animação dos títulos termina (40s + 9s de delay = 49s)
+      // Aguarda mais 2 segundos para o usuário ler
+      setTimeout(() => {
+        navigate('/home');
+      }, 51000); // 49s + 2s = 51s
     };
 
     const handleAudioEnded = () => {
@@ -39,7 +49,7 @@ const StarWarsOpening: React.FC = () => {
       start.removeEventListener('click', handleStartClick);
       audio.removeEventListener('ended', handleAudioEnded);
     };
-  }, []);
+  }, [navigate]);
 
   return (
     <article className="starwars black-sky" ref={containerRef}>
@@ -62,7 +72,7 @@ const StarWarsOpening: React.FC = () => {
         Not a long time ago, in a galaxy kind of far,far-ish away...
         </section>
           
-        <section className="titles perspective">
+        <section className="titles perspective" ref={titlesRef}>
           <div contentEditable={true} spellCheck={false}>  
             <p>
             Trained in silence, Pedro Reoli<br />

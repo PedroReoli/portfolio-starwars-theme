@@ -1,11 +1,16 @@
 import React from 'react'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import StarWarsOpening from './components/StarWarsOpening'
+import Home from './components/Home'
 
 const App: React.FC = () => {
   return (
-    <div>
-      <StarWarsOpening />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<StarWarsOpening />} />
+        <Route path="/home" element={<Home />} />
+      </Routes>
+    </Router>
   )
 }
 
