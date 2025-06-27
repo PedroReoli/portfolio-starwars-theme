@@ -132,6 +132,12 @@ body {
   backface-visibility: hidden;
 }
 
+/* Corrige espaçamento específico do texto balance */
+.starwars .titles > div > p:last-child {
+  text-align: center;
+  word-spacing: normal;
+}
+
 @keyframes intro {
   0% {
     opacity: 0;
@@ -184,37 +190,29 @@ body {
 /* Reduz tamanho dos textos em celulares */
 @media (max-width: 768px) {
   .starwars .intro {
-    font-size: 160%;
+    font-size: 120%;
     width: 12em;
     margin: 0 0 0 -6em;
   }
   
   .starwars .titles {
-    font-size: 250%;
+    font-size: 200%;
     width: 12em;
     margin: 0 0 0 -6em;
-  }
-  
-  .starwars .titles > div {
-    animation: titles 25s linear 9s;
   }
 }
 
 /* Reduz ainda mais em celulares pequenos */
 @media (max-width: 480px) {
   .starwars .intro {
-    font-size: 140%;
+    font-size: 100%;
     width: 10em;
     margin: 0 0 0 -5em;
   }
   
   .starwars .titles {
-    font-size: 200%;
+    font-size: 150%;
     width: 10em;
     margin: 0 0 0 -5em;
-  }
-  
-  .starwars .titles > div {
-    animation: titles 20s linear 9s;
   }
 } 
