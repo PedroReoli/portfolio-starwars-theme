@@ -1,0 +1,15 @@
+* {
+    box-sizing: border-box;
+  }
+  
+  body.hyperscape {
+    background: radial-gradient(#000, #111), #000;
+    min-height: 100vh;
+  }
+  
+  body.hyperscape canvas {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+  }
+  
