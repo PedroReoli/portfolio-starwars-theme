@@ -243,4 +243,31 @@ body {
   height: 100vh;
   z-index: 1;
   display: block !important;
+}
+
+.battle-btn {
+  background: #111;
+  color: #fed34f;
+  font-family: 'News Cycle', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border: 2px solid #fed34f;
+  border-radius: 8px;
+  padding: 0.7rem 2.2rem;
+  box-shadow: 0 0 12px #222;
+  cursor: pointer;
+  letter-spacing: 0.1em;
+  margin: 2.5em auto 0 auto;
+  display: block;
+  transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.2s;
+}
+.battle-btn:hover:not(:disabled) {
+  background: #fed34f;
+  color: #111;
+  border-color: #fff200;
+  box-shadow: 0 0 24px #fed34f, 0 0 8px #fff200;
+}
+.battle-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
 } 

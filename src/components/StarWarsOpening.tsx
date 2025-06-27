@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './StarWarsOpening.css';
+import Hyperscape from './Hyperscape';
 
 const StarWarsOpening: React.FC = () => {
   const navigate = useNavigate();
@@ -10,6 +11,9 @@ const StarWarsOpening: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const titlesRef = useRef<HTMLDivElement>(null);
   const [isStarted, setIsStarted] = useState(false);
+  const [showBattleBtn, setShowBattleBtn] = useState(false);
+  const [showHyperscape, setShowHyperscape] = useState(false);
+  const [autoHyperscapeTimeout, setAutoHyperscapeTimeout] = useState<number | null>(null);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -25,18 +29,25 @@ const StarWarsOpening: React.FC = () => {
       start.style.display = 'none';
       audio.play();
       container.appendChild(animation);
-      
-      // Detecta quando a animação dos títulos termina (40s + 9s de delay = 49s)
-      // Aguarda mais 2 segundos para o usuário ler
+      // Exibe botão Prepare to Battle após titles (49s)
       setTimeout(() => {
-        navigate('/home');
-      }, 51000); // 49s + 2s = 51s
+        setShowBattleBtn(true);
+        // Timeout automático para disparar Hyperscape 2s depois do texto subir
+        const timeout = setTimeout(() => {
+          setShowHyperscape(true);
+        }, 2000);
+        setAutoHyperscapeTimeout(timeout);
+      }, 49000);
     };
 
     const handleAudioEnded = () => {
       audio.currentTime = 0;
       setIsStarted(false);
       start.style.display = 'block';
+      setShowBattleBtn(false);
+      setShowHyperscape(false);
+      if (autoHyperscapeTimeout) clearTimeout(autoHyperscapeTimeout);
+      setAutoHyperscapeTimeout(null);
       const cloned = animation.cloneNode(true) as HTMLDivElement;
       animation.remove();
       animationRef.current = cloned;
@@ -49,7 +60,20 @@ const StarWarsOpening: React.FC = () => {
       start.removeEventListener('click', handleStartClick);
       audio.removeEventListener('ended', handleAudioEnded);
     };
-  }, [navigate]);
+  }, [navigate, autoHyperscapeTimeout]);
+
+  const handleBattle = () => {
+    setShowBattleBtn(false);
+    setShowHyperscape(true);
+    if (autoHyperscapeTimeout) clearTimeout(autoHyperscapeTimeout);
+    setAutoHyperscapeTimeout(null);
+  };
+
+  // Redireciona para Home após Hyperscape
+  const handleHyperscapeFinish = () => {
+    setShowHyperscape(false);
+    navigate('/home');
+  };
 
   return (
     <article className="starwars black-sky" ref={containerRef}>
@@ -73,18 +97,29 @@ const StarWarsOpening: React.FC = () => {
         </section>
           
         <section className="titles perspective" ref={titlesRef}>
-          <div contentEditable={true} spellCheck={false}>  
+          <div>
             <p>
-            Trained in silence, Pedro Reoli<br />
-            explores the frontiers of code,<br />
-            wielding React and TypeScript<br />
-            with curiosity and purpose.<br />
-            A junior dev on a mission<br />
-            to master the craft and one day<br />
-            deploy balance across the stack.
+              Trained in silence, Pedro Reoli<br />
+              explores the frontiers of code,<br />
+              wielding React and TypeScript<br />
+              with curiosity and purpose.<br />
+              A junior dev on a mission<br />
+              to master the craft and one day<br />
+              deploy balance across the stack.
             </p>
+            <button
+              className="battle-btn"
+              onClick={handleBattle}
+              disabled={showHyperscape}
+              style={{ opacity: showHyperscape ? 0.5 : 1, pointerEvents: showHyperscape ? 'none' : 'auto' }}
+            >
+              Prepare to Battle
+            </button>
           </div>
         </section>
+        
+        {/* Loading Hyperscape */}
+        {showHyperscape && <Hyperscape onFinish={handleHyperscapeFinish} />}
         
         <section className="logo">
           <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px"

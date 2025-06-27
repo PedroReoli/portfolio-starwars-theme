@@ -1,10 +1,21 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar';
 import './Home.css';
 
 const Home: React.FC = () => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  useEffect(() => {
+    // Pequeno delay para garantir que o componente está montado
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 100);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <div>
+    <div className={`home-wrapper ${isVisible ? 'visible' : ''}`}>
       <Navbar />
       <div className="home-container">
         <div className="home-content">

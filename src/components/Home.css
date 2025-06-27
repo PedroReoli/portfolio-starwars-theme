@@ -1,5 +1,17 @@
 /* Home.css - Estilos para a página Home */
 
+/* Animação de entrada do Home */
+.home-wrapper {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 1.2s ease-out, transform 1.2s ease-out;
+}
+
+.home-wrapper.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
 .navbar {
   min-height: 130px;
   height: 150px;
