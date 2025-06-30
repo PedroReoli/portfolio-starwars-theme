@@ -146,7 +146,7 @@ const Hyperscape: React.FC<{ onFinish?: () => void }> = ({ onFinish }) => {
     phaseTimeout = setTimeout(nextPhase, PHASES[0].duration);
 
     const render = () => {
-      const { bgAlpha, velocity, sizeInc, stars, jumping, initiating } = stateRef.current;
+      const { bgAlpha, velocity, sizeInc, stars, jumping } = stateRef.current;
       context.clearRect(0, 0, window.innerWidth, window.innerHeight);
       if (bgAlpha > 0) {
         context.fillStyle = `rgba(31, 58, 157, ${bgAlpha})`;

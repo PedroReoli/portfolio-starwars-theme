@@ -11,9 +11,9 @@ const StarWarsOpening: React.FC = () => {
   const containerRef = useRef<HTMLDivElement>(null);
   const titlesRef = useRef<HTMLDivElement>(null);
   const [isStarted, setIsStarted] = useState(false);
-  const [showBattleBtn, setShowBattleBtn] = useState(false);
   const [showHyperscape, setShowHyperscape] = useState(false);
   const [autoHyperscapeTimeout, setAutoHyperscapeTimeout] = useState<number | null>(null);
+  const [isHidden, setIsHidden] = useState(false);
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -31,7 +31,6 @@ const StarWarsOpening: React.FC = () => {
       container.appendChild(animation);
       // Exibe botão Prepare to Battle após titles (49s)
       setTimeout(() => {
-        setShowBattleBtn(true);
         // Timeout automático para disparar Hyperscape 2s depois do texto subir
         const timeout = setTimeout(() => {
           setShowHyperscape(true);
@@ -44,8 +43,8 @@ const StarWarsOpening: React.FC = () => {
       audio.currentTime = 0;
       setIsStarted(false);
       start.style.display = 'block';
-      setShowBattleBtn(false);
       setShowHyperscape(false);
+      setIsHidden(false);
       if (autoHyperscapeTimeout) clearTimeout(autoHyperscapeTimeout);
       setAutoHyperscapeTimeout(null);
       const cloned = animation.cloneNode(true) as HTMLDivElement;
@@ -63,7 +62,6 @@ const StarWarsOpening: React.FC = () => {
   }, [navigate, autoHyperscapeTimeout]);
 
   const handleBattle = () => {
-    setShowBattleBtn(false);
     setShowHyperscape(true);
     if (autoHyperscapeTimeout) clearTimeout(autoHyperscapeTimeout);
     setAutoHyperscapeTimeout(null);
@@ -72,8 +70,15 @@ const StarWarsOpening: React.FC = () => {
   // Redireciona para Home após Hyperscape
   const handleHyperscapeFinish = () => {
     setShowHyperscape(false);
+    setIsHidden(true);
+    // Redireciona imediatamente após ocultar
     navigate('/home');
   };
+
+  // Se estiver oculto, não renderiza nada
+  if (isHidden) {
+    return null;
+  }
 
   return (
     <article className="starwars black-sky" ref={containerRef}>
