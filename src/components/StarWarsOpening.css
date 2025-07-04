@@ -270,4 +270,52 @@ body {
 .battle-btn:disabled {
   opacity: 0.5;
   cursor: not-allowed;
+}
+
+.skip-btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 2px solid #FFE81F;
+  color: #FFE81F;
+  padding: 10px 15px;
+  font-family: "News Cycle", sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  border-radius: 25px;
+}
+
+.skip-btn:hover {
+  background: rgba(255, 232, 31, 0.2);
+  box-shadow: 0 0 10px rgba(255, 232, 31, 0.5);
+  transform: scale(1.05);
+}
+
+.skip-btn:active {
+  transform: scale(0.95);
+}
+
+/* Responsividade para o botão skip */
+@media (max-width: 768px) {
+  .skip-btn {
+    top: 15px;
+    right: 15px;
+    padding: 8px 12px;
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .skip-btn {
+    top: 10px;
+    right: 10px;
+    padding: 6px 10px;
+    font-size: 11px;
+  }
 } 

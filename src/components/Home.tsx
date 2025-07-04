@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Navbar from './Navbar';
+import Switch from './bb8/bb8';
 import './Home.css';
 
 const Home: React.FC = () => {
@@ -26,6 +27,16 @@ const Home: React.FC = () => {
             </p>
           </div>
         </div>
+      </div>
+      
+      {/* BB8 no canto direito inferior */}
+      <div style={{
+        position: 'fixed',
+        bottom: '20px',
+        right: '20px',
+        zIndex: 1000
+      }}>
+        <Switch />
       </div>
     </div>
   );

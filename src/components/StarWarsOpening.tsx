@@ -67,6 +67,13 @@ const StarWarsOpening: React.FC = () => {
     setAutoHyperscapeTimeout(null);
   };
 
+  // Função para pular o opening crawl
+  const handleSkipOpening = () => {
+    setShowHyperscape(true);
+    if (autoHyperscapeTimeout) clearTimeout(autoHyperscapeTimeout);
+    setAutoHyperscapeTimeout(null);
+  };
+
   // Redireciona para Home após Hyperscape
   const handleHyperscapeFinish = () => {
     setShowHyperscape(false);
@@ -83,6 +90,21 @@ const StarWarsOpening: React.FC = () => {
   return (
     <article className="starwars black-sky" ref={containerRef}>
       <div className="stars"></div>
+      
+      {/* Botão Skip Opening Crawl */}
+      <button 
+        className="skip-btn" 
+        onClick={handleSkipOpening}
+        disabled={showHyperscape}
+        style={{ 
+          opacity: showHyperscape ? 0.5 : 1, 
+          pointerEvents: showHyperscape ? 'none' : 'auto',
+          display: isStarted ? 'block' : 'none'
+        }}
+      >
+        Skip Opening Crawl
+      </button>
+      
       <audio ref={audioRef} preload="auto">
         <source src="https://s.cdpn.io/1202/Star_Wars_original_opening_crawl_1977.ogg" type="audio/ogg" />
         <source src="https://s.cdpn.io/1202/Star_Wars_original_opening_crawl_1977.mp3" type="audio/mpeg" />

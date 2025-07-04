@@ -1,8 +1,14 @@
 import React from 'react';
-import Switch from './bb8/bb8';
+import { useNavigate } from 'react-router-dom';
 import './Home.css';
 
 const Navbar: React.FC = () => {
+  const navigate = useNavigate();
+
+  const handleLogoClick = () => {
+    navigate('/');
+  };
+
   return (
     <nav className="navbar">
       {/* PedroReoli à esquerda */}
@@ -17,11 +23,22 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Logo Star Wars no centro */}
-      <div style={{
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center'
-      }}>
+      <div 
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          cursor: 'pointer',
+          transition: 'transform 0.3s ease'
+        }}
+        onClick={handleLogoClick}
+        onMouseEnter={(e) => {
+          e.currentTarget.style.transform = 'scale(1.1)';
+        }}
+        onMouseLeave={(e) => {
+          e.currentTarget.style.transform = 'scale(1)';
+        }}
+      >
         <svg 
           version="1.0" 
           xmlns="http://www.w3.org/2000/svg" 
@@ -119,14 +136,6 @@ const Navbar: React.FC = () => {
             </g>
           </g>
         </svg>
-      </div>
-
-      {/* BB8 Switcher à direita */}
-      <div style={{
-        display: 'flex',
-        alignItems: 'center'
-      }}>
-        <Switch />
       </div>
     </nav>
   );
