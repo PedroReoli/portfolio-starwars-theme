@@ -1,11 +1,21 @@
 import styled from 'styled-components';
 
-const Switch = () => {
+interface SwitchProps {
+  isJediMode: boolean;
+  onToggle: () => void;
+}
+
+const Switch: React.FC<SwitchProps> = ({ isJediMode, onToggle }) => {
   return (
     <StyledWrapper>
-      <label className="bb8-toggle">
-        <input className="bb8-toggle__checkbox" type="checkbox" />
-        <div className="bb8-toggle__container">
+      <div className="bb8-toggle" onClick={onToggle}>
+        <input 
+          className="bb8-toggle__checkbox" 
+          type="checkbox" 
+          checked={!isJediMode}
+          readOnly
+        />
+        <div className={`bb8-toggle__container ${!isJediMode ? 'sith-mode' : 'jedi-mode'}`}>
           <div className="bb8-toggle__scenery">
             <div className="bb8-toggle__star" />
             <div className="bb8-toggle__star" />
@@ -23,19 +33,19 @@ const Switch = () => {
             <div className="bb8-toggle__cloud" />
             <div className="bb8-toggle__cloud" />
           </div>
-          <div className="bb8">
+          <div className={`bb8 ${!isJediMode ? 'sith-mode' : 'jedi-mode'}`}>
             <div className="bb8__head-container">
               <div className="bb8__antenna" />
               <div className="bb8__antenna" />
-              <div className="bb8__head" />
+              <div className={`bb8__head ${!isJediMode ? 'sith-mode' : 'jedi-mode'}`} />
             </div>
-            <div className="bb8__body" />
+            <div className={`bb8__body ${!isJediMode ? 'sith-mode' : 'jedi-mode'}`} />
           </div>
           <div className="artificial__hidden">
             <div className="bb8__shadow" />
           </div>
         </div>
-      </label>
+      </div>
     </StyledWrapper>
   );
 }
@@ -74,6 +84,11 @@ const StyledWrapper = styled.div`
     cursor: pointer;
     margin-top: var(--margin-top-for-head);
     font-size: var(--toggle-size);
+    display: inline-block;
+    user-select: none;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
   }
 
   .bb8-toggle__checkbox {
@@ -96,6 +111,13 @@ const StyledWrapper = styled.div`
     transition: var(--transition);
   }
 
+  .bb8-toggle__container.sith-mode {
+    background: linear-gradient(#8b0000, #4a0000 35%, #ff4444 50% 70%, #ff8888)
+      no-repeat;
+    background-size: 100% 11.25em;
+    background-position-y: -5.625em;
+  }
+
   .bb8 {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -114,6 +136,10 @@ const StyledWrapper = styled.div`
     -o-transition: var(--transition);
     transition: var(--transition);
     z-index: 2;
+  }
+
+  .bb8.sith-mode {
+    left: calc(var(--toggle-width) - var(--toggle-offset) - var(--bb8-diameter));
   }
 
   .bb8__head-container {
@@ -174,20 +200,6 @@ const StyledWrapper = styled.div`
       -o-linear-gradient(135deg, transparent 0.188em, var(--bb8-bg) 0.188em 1.25em, transparent
             1.25em),
       -o-linear-gradient(var(--bb8-bg) 1.25em, transparent 1.25em);
-    background: -o-linear-gradient(
-        transparent 0.063em,
-        dimgray 0.063em 0.313em,
-        transparent 0.313em 0.375em,
-        var(--accent) 0.375em 0.5em,
-        transparent 0.5em 1.313em,
-        silver 1.313em 1.438em,
-        transparent 1.438em
-      ),
-      -o-linear-gradient(45deg, transparent 0.188em, var(--bb8-bg) 0.188em 1.25em, transparent
-            1.25em),
-      -o-linear-gradient(135deg, transparent 0.188em, var(--bb8-bg) 0.188em 1.25em, transparent
-            1.25em),
-      -o-linear-gradient(var(--bb8-bg) 1.25em, transparent 1.25em);
     background: linear-gradient(
         transparent 0.063em,
         dimgray 0.063em 0.313em,
@@ -204,17 +216,38 @@ const StyledWrapper = styled.div`
         transparent 1.25em
       ),
       linear-gradient(
-        -45deg,
+        135deg,
         transparent 0.188em,
         var(--bb8-bg) 0.188em 1.25em,
         transparent 1.25em
       ),
       linear-gradient(var(--bb8-bg) 1.25em, transparent 1.25em);
-    border-radius: var(--radius) var(--radius) 0 0;
-    position: relative;
-    z-index: 1;
-    -webkit-filter: drop-shadow(0 0.063em 0.125em gray);
-    filter: drop-shadow(0 0.063em 0.125em gray);
+    border-radius: 1.25em 1.25em 0 0;
+  }
+
+  .bb8.sith-mode .bb8__head {
+    background: linear-gradient(
+      transparent 0.063em,
+      #333 0.063em 0.313em,
+      transparent 0.313em 0.375em,
+      #ff0000 0.375em 0.5em,
+      transparent 0.5em 1.313em,
+      #666 1.313em 1.438em,
+      transparent 1.438em
+    ),
+    linear-gradient(
+      45deg,
+      transparent 0.188em,
+      #222 0.188em 1.25em,
+      transparent 1.25em
+    ),
+    linear-gradient(
+      135deg,
+      transparent 0.188em,
+      #222 0.188em 1.25em,
+      transparent 1.25em
+    ),
+    linear-gradient(#222 1.25em, transparent 1.25em);
   }
 
   .bb8__head::before {
@@ -258,17 +291,6 @@ const StyledWrapper = styled.div`
       -o-radial-gradient(0.375em 0.188em, 0.063em circle, var(--bb8-bg) 50%, transparent
             100%),
       -o-linear-gradient(45deg, #000 0.188em, dimgray 0.313em 0.375em, #000 0.5em);
-    background: radial-gradient(
-        0.125em circle at 0.25em 0.375em,
-        red,
-        transparent
-      ),
-      radial-gradient(
-        0.063em circle at 0.375em 0.188em,
-        var(--bb8-bg) 50%,
-        transparent 100%
-      ),
-      linear-gradient(45deg, #000 0.188em, dimgray 0.313em 0.375em, #000 0.5em);
     border-radius: var(--radius);
     top: 0.413em;
     left: 50%;
@@ -531,6 +553,62 @@ const StyledWrapper = styled.div`
         transparent 58%
       ),
       linear-gradient(var(--bb8-bg) 42%, var(--accent) 42% 58%, var(--bb8-bg) 58%);
+  }
+
+  .bb8__body.sith-mode {
+    --accent: #ff0000;
+    --bb8-bg: #222;
+    background: linear-gradient(
+      90deg,
+      #222 4%,
+      #ff0000 4% 10%,
+      transparent 10% 90%,
+      #ff0000 90% 96%,
+      #222 96%
+    ),
+    linear-gradient(
+      #222 4%,
+      #ff0000 4% 10%,
+      transparent 10% 90%,
+      #ff0000 90% 96%,
+      #222 96%
+    ),
+    linear-gradient(
+      to right,
+      transparent 2.156em,
+      #666 2.156em 2.219em,
+      transparent 2.188em
+    ),
+    linear-gradient(
+      transparent 2.156em,
+      #666 2.156em 2.219em,
+      transparent 2.188em
+    );
+    background-color: #222;
+  }
+
+  .bb8__body.sith-mode::before {
+    border: 0.313em solid #ff0000;
+    background: radial-gradient(
+        1em circle at center,
+        #444 50%,
+        transparent 51%
+      ),
+      radial-gradient(1.25em circle at center, #222 50%, transparent 51%),
+      linear-gradient(
+        -90deg,
+        transparent 42%,
+        #ff0000 42% 58%,
+        transparent 58%
+      ),
+      linear-gradient(#222 42%, #ff0000 42% 58%, #222 58%);
+  }
+
+  .bb8__body.sith-mode::after {
+    background: #ff8888;
+    color: #ff8888;
+    box-shadow: 0.875em 0.938em, 0 -1.25em, 0.875em -2.125em,
+      2.125em -2.125em, 3.063em -1.25em, 3.063em 0, 2.125em 0.938em;
   }
 
   .artificial__hidden {
@@ -983,6 +1061,7 @@ const StyledWrapper = styled.div`
 
   .bb8:hover .bb8__head::after {
     background-position: 0 0 !important;
-  }`;
+  }
+`;
 
 export default Switch;

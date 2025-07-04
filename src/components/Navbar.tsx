@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import './Home.css';
+import '@/components/AboutMe.css';
 
 const Navbar: React.FC = () => {
   const navigate = useNavigate();

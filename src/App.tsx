@@ -1,7 +1,7 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import StarWarsOpening from './components/StarWarsOpening'
-import Home from './components/AboutMe'
+import Home from './pages/AboutMe'
 
 const App: React.FC = () => {
   return (
