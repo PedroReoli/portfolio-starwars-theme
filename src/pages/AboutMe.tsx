@@ -25,9 +25,7 @@ const AboutMe: React.FC = () => {
     <div className={`home-wrapper ${isVisible ? 'visible' : ''}`}>
       <Navbar />
       <div className="home-container">
-        <div className="home-content">
-          <h1 className="home-title">About Me</h1>
-          
+        <div className="home-content row-layout">
           {/* Card da Foto */}
           <div className={`photo-card ${isJediMode ? 'jedi-mode' : 'sith-mode'}`}>
             <div className="photo-container">
