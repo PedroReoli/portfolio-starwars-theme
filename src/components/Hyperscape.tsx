@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react';
-import './hyperscape.css';
+import '@/css/hyperscape.css';
 
 const WARP_COLORS = [
   [197, 239, 247],

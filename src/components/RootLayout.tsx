@@ -1,13 +1,14 @@
 import React from 'react';
 import { Outlet } from 'react-router-dom';
 import Navbar from './Navbar';
-import Background from './Background';
+import '@/css/SharedComponents.css';
+import '../css/stars.css';
 
 const RootLayout: React.FC = () => {
   return (
-    <div style={{ position: 'relative', minHeight: '100vh', width: '100vw', overflow: 'hidden' }}>
-      <Background />
-      <div style={{ position: 'relative', zIndex: 1 }}>
+    <div className="root-layout">
+      <div className="stars" />
+      <div className="root-content">
         <Navbar />
         <Outlet />
       </div>

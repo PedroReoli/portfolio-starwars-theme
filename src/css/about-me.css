@@ -1,0 +1,252 @@
+/* Import Star Wars font */
+@import url("https://fonts.googleapis.com/css?family=News+Cycle:400,700");
+
+.about-container {
+  position: relative;
+  min-height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 2rem 2rem 2rem;
+  font-family: "News Cycle", Arial, sans-serif;
+  overflow: hidden;
+}
+
+/* Background Stars */
+.background-stars {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.black-sky {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+
+.stars {
+  position: absolute;
+  width: 2px;
+  height: 2px;
+  background-color: #fff;
+  border-radius: 50%;
+  z-index: 2;
+  box-shadow:
+    970px 909px #fff, 1px 149px #fff, 736px 348px #fff, 1352px 1333px #fff, 57px 1598px #fff, 1007px 332px #fff, 1474px 782px #fff, 726px 826px #fff, 768px 344px #fff, 1673px 1878px #fff, 1970px 722px #fff, 123px 79px #fff, 1137px 1554px #fff, 490px 521px #fff, 1277px 1346px #fff, 14px 1701px #fff, 114px 1127px #fff, 849px 20px #fff, 1697px 199px #fff, 1013px 741px #fff;
+}
+
+/* Main Content */
+.about-content {
+  position: relative;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 3rem;
+  max-width: 1200px;
+  width: 100%;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+/* Photo Card */
+.photo-card {
+  position: relative;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #fed34f;
+  border-radius: 15px;
+  padding: 1.5rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(254, 211, 79, 0.3);
+  transition: all 0.3s ease;
+}
+
+.photo-card:hover {
+  box-shadow: 0 0 30px rgba(254, 211, 79, 0.5);
+  transform: translateY(-5px);
+}
+
+.photo-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.profile-photo {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+/* Text Card */
+.text-card {
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px solid #fed34f;
+  border-radius: 15px;
+  padding: 2rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 0 20px rgba(254, 211, 79, 0.3);
+  transition: all 0.3s ease;
+}
+
+.text-card:hover {
+  box-shadow: 0 0 30px rgba(254, 211, 79, 0.5);
+}
+
+.text-content {
+  color: white;
+}
+
+.title {
+  color: #fed34f;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  letter-spacing: 0.1em;
+  text-shadow: 0 0 10px rgba(254, 211, 79, 0.5);
+}
+
+.text-body {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  letter-spacing: 0.05em;
+}
+
+.text-body p {
+  margin-bottom: 1.2rem;
+  text-align: justify;
+}
+
+.highlight {
+  color: #fed34f;
+  font-weight: 700;
+  text-shadow: 0 0 5px rgba(254, 211, 79, 0.3);
+}
+
+/* BB8 Placeholder */
+.bb8-placeholder {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 1000;
+  width: 80px;
+  height: 80px;
+}
+
+.placeholder-content {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  border: 2px dashed #fed34f;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fed34f;
+  font-size: 0.7rem;
+  text-align: center;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  backdrop-filter: blur(10px);
+  opacity: 0.7;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .about-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .photo-card {
+    max-width: 400px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .about-container {
+    padding: 1rem;
+  }
+
+  .photo-card,
+  .text-card {
+    padding: 1.5rem;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .text-body {
+    font-size: 1rem;
+  }
+
+  .profile-photo {
+    height: 300px;
+  }
+
+  .bb8-placeholder {
+    bottom: 1rem;
+    right: 1rem;
+    width: 60px;
+    height: 60px;
+  }
+
+  .placeholder-content {
+    font-size: 0.6rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-container {
+    padding: 0.5rem;
+  }
+
+  .photo-card,
+  .text-card {
+    padding: 1rem;
+  }
+
+  .title {
+    font-size: 1.5rem;
+  }
+
+  .text-body {
+    font-size: 0.9rem;
+  }
+
+  .profile-photo {
+    height: 250px;
+  }
+
+  .bb8-placeholder {
+    bottom: 0.5rem;
+    right: 0.5rem;
+    width: 50px;
+    height: 50px;
+  }
+
+  .placeholder-content {
+    font-size: 0.5rem;
+  }
+}
+
+/* Hide stars on ultrawide screens */
+@media (min-aspect-ratio: 21 / 9) {
+  .stars {
+    display: none !important;
+  }
+} 

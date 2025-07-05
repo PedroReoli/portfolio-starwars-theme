@@ -1,45 +1,16 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-import '@/components/AboutMe.css';
+import { FaUserAstronaut, FaTools, FaBriefcase, FaEnvelope } from 'react-icons/fa';
+import '@/css/SharedComponents.css';
 
 const Navbar: React.FC = () => {
   const navigate = useNavigate();
 
-  const handleLogoClick = () => {
-    navigate('/');
-  };
-
   return (
     <nav className="navbar">
-      {/* PedroReoli à esquerda */}
-      <div className="navbar-left" style={{
-        color: '#fed34f',
-        fontSize: '1.5rem',
-        fontWeight: 'bold',
-        fontFamily: 'Arial, sans-serif',
-        letterSpacing: '0.15em'
-      }}>
-        PedroReoli
-      </div>
-
-      {/* Logo Star Wars no centro */}
-      <div 
-        style={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          cursor: 'pointer',
-          transition: 'transform 0.3s ease'
-        }}
-        onClick={handleLogoClick}
-        onMouseEnter={(e) => {
-          e.currentTarget.style.transform = 'scale(1.1)';
-        }}
-        onMouseLeave={(e) => {
-          e.currentTarget.style.transform = 'scale(1)';
-        }}
-      >
-        <svg 
+      {/* Logo Star Wars à esquerda */}
+      <div className="navbar-logo" style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }} onClick={() => navigate('/home')}>
+      <svg 
           version="1.0" 
           xmlns="http://www.w3.org/2000/svg" 
           xmlnsXlink="http://www.w3.org/1999/xlink" 
@@ -136,6 +107,13 @@ const Navbar: React.FC = () => {
             </g>
           </g>
         </svg>
+      </div>
+      {/* Botões de navegação */}
+      <div className="navbar-links">
+        <button className="nav-btn" onClick={() => navigate('/home')}><FaUserAstronaut className="nav-icon" /> About Me</button>
+        <button className="nav-btn" onClick={() => navigate('/skills')}><FaTools className="nav-icon" /> Skills</button>
+        <button className="nav-btn" onClick={() => navigate('/experience')}><FaBriefcase className="nav-icon" /> Experience</button>
+        <button className="nav-btn" onClick={() => navigate('/contact')}><FaEnvelope className="nav-icon" /> Contact</button>
       </div>
     </nav>
   );

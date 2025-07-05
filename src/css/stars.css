@@ -1,0 +1,238 @@
+/* Estrelas responsivas perfeitas para todos os tamanhos de tela */
+.stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    z-index: 1;
+    box-shadow: 
+      /* Estrelas usando viewport units para responsividade total */
+      12.7vw 8.2vh #fff, 29.3vw 16.8vh #fff, 46.1vw 7.4vh #fff, 63.4vw 21.7vh #fff, 
+      75.7vw 30.1vh #fff, 92.3vw 16.5vh #fff, 8.9vw 35.6vh #fff, 24.5vw 42.3vh #fff,
+      41.2vw 38.9vh #fff, 57.8vw 45.6vh #fff, 73.4vw 41.2vh #fff, 90.1vw 47.8vh #fff,
+      6.7vw 53.4vh #fff, 23.4vw 60.1vh #fff, 40.1vw 56.7vh #fff, 56.7vw 63.4vh #fff, 
+      73.4vw 58.9vh #fff, 90.1vw 65.6vh #fff, 12.3vw 71.2vh #fff, 28.9vw 77.9vh #fff, 
+      45.6vw 73.4vh #fff, 62.3vw 80.1vh #fff, 78.9vw 75.6vh #fff, 95.6vw 82.3vh #fff,
+      4.5vw 88.9vh #fff, 21.2vw 95.6vh #fff, 37.8vw 91.2vh #fff, 54.5vw 97.9vh #fff,
+      
+      /* Estrelas menores para preenchimento */
+      18.9vw 13.4vh #fff, 34.5vw 22.3vh #fff, 51.2vw 14.5vh #fff, 67.8vw 27.8vh #fff,
+      84.5vw 18.9vh #fff, 15.6vw 32.3vh #fff, 32.3vw 28.9vh #fff, 48.9vw 35.6vh #fff, 
+      65.6vw 32.3vh #fff, 82.3vw 38.9vh #fff, 9.8vw 45.6vh #fff, 26.5vw 41.2vh #fff, 
+      43.2vw 47.8vh #fff, 59.8vw 43.4vh #fff, 76.5vw 50.1vh #fff, 93.2vw 45.6vh #fff,
+      7.8vw 52.3vh #fff, 24.5vw 58.9vh #fff, 41.2vw 54.5vh #fff, 57.8vw 61.2vh #fff, 
+      74.5vw 56.7vh #fff, 91.2vw 63.4vh #fff, 13.4vw 69.8vh #fff, 30.1vw 65.4vh #fff, 
+      46.7vw 72.1vh #fff, 63.4vw 67.8vh #fff, 80.1vw 74.5vh #fff, 96.7vw 69.8vh #fff,
+      5.6vw 76.5vh #fff, 22.3vw 82.1vh #fff, 38.9vw 77.8vh #fff, 55.6vw 84.5vh #fff, 
+      72.3vw 79.8vh #fff, 88.9vw 86.5vh #fff, 11.2vw 92.1vh #fff, 27.8vw 87.8vh #fff, 
+      44.5vw 94.5vh #fff, 61.2vw 89.8vh #fff, 77.8vw 96.5vh #fff, 94.5vw 91.2vh #fff,
+      
+      /* Estrelas brilhantes ocasionais */
+      35.5vw 25.3vh 0 0.5px #fff, 68.2vw 52.7vh 0 0.5px #fff, 22.4vw 78.5vh 0 0.5px #fff,
+      81.7vw 34.2vh 0 0.5px #fff, 47.3vw 69.8vh 0 0.5px #fff, 14.6vw 43.7vh 0 0.5px #fff;
+  }
+  
+  /* Segunda camada de estrelas menores */
+  .stars::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    opacity: 0.8;
+    box-shadow:
+      8.9vw 11.4vh #fff, 25.5vw 18.3vh #fff, 42.2vw 13.5vh #fff, 58.8vw 20.8vh #fff,
+      75.5vw 15.9vh #fff, 92.2vw 22.3vh #fff, 6.7vw 28.9vh #fff, 23.4vw 24.5vh #fff, 
+      40.1vw 31.2vh #fff, 56.7vw 26.8vh #fff, 73.4vw 33.4vh #fff, 90.1vw 28.9vh #fff,
+      12.3vw 35.6vh #fff, 28.9vw 40.1vh #fff, 45.6vw 36.7vh #fff, 62.3vw 43.4vh #fff, 
+      78.9vw 38.9vh #fff, 95.6vw 45.6vh #fff, 4.5vw 51.2vh #fff, 21.2vw 46.7vh #fff, 
+      37.8vw 53.4vh #fff, 54.5vw 48.9vh #fff, 71.2vw 55.6vh #fff, 87.8vw 51.2vh #fff,
+      10.1vw 58.9vh #fff, 26.7vw 63.4vh #fff, 43.4vw 59.8vh #fff, 60.1vw 66.5vh #fff, 
+      76.7vw 61.2vh #fff, 93.4vw 67.8vh #fff, 7.8vw 74.5vh #fff, 24.5vw 69.8vh #fff, 
+      41.2vw 76.5vh #fff, 57.8vw 72.1vh #fff, 74.5vw 78.9vh #fff, 91.2vw 74.5vh #fff,
+      13.4vw 81.2vh #fff, 30.1vw 85.6vh #fff, 46.7vw 82.3vh #fff, 63.4vw 88.9vh #fff, 
+      80.1vw 84.5vh #fff, 96.7vw 91.2vh #fff, 5.6vw 97.8vh #fff, 22.3vw 93.4vh #fff, 
+      38.9vw 99.1vh #fff, 55.6vw 94.7vh #fff, 72.3vw 100.8vh #fff, 88.9vw 96.4vh #fff;
+  }
+  
+  /* Terceira camada para telas grandes */
+  .stars::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 1px;
+    height: 1px;
+    background: transparent;
+    opacity: 0.6;
+    box-shadow:
+      16.7vw 9.2vh #fff, 33.4vw 17.5vh #fff, 50.1vw 12.8vh #fff, 66.7vw 19.4vh #fff,
+      83.4vw 14.7vh #fff, 100.1vw 21.3vh #fff, 8.3vw 27.6vh #fff, 25.0vw 23.9vh #fff, 
+      41.7vw 30.2vh #fff, 58.3vw 25.5vh #fff, 75.0vw 32.8vh #fff, 91.7vw 27.1vh #fff,
+      4.2vw 34.7vh #fff, 20.8vw 39.4vh #fff, 37.5vw 35.0vh #fff, 54.2vw 41.7vh #fff, 
+      70.8vw 36.3vh #fff, 87.5vw 43.9vh #fff, 12.5vw 49.2vh #fff, 29.2vw 44.5vh #fff, 
+      45.8vw 51.8vh #fff, 62.5vw 46.1vh #fff, 79.2vw 53.4vh #fff, 95.8vw 48.7vh #fff,
+      6.3vw 56.0vh #fff, 22.9vw 60.7vh #fff, 39.6vw 56.3vh #fff, 56.3vw 63.6vh #fff, 
+      72.9vw 58.2vh #fff, 89.6vw 65.5vh #fff, 14.6vw 71.8vh #fff, 31.3vw 66.1vh #fff, 
+      47.9vw 74.4vh #fff, 64.6vw 68.7vh #fff, 81.3vw 76.0vh #fff, 97.9vw 70.3vh #fff;
+  }
+  
+  /* Responsividade específica por tamanho de tela */
+  
+  /* Telas muito pequenas (até 320px) */
+  @media (max-width: 320px) {
+    .stars {
+      opacity: 0.6;
+    }
+    
+    .stars::before {
+      opacity: 0.4;
+    }
+    
+    .stars::after {
+      opacity: 0.2;
+    }
+  }
+  
+  /* Telas pequenas (321px - 480px) */
+  @media (min-width: 321px) and (max-width: 480px) {
+    .stars {
+      opacity: 0.7;
+    }
+    
+    .stars::before {
+      opacity: 0.5;
+    }
+    
+    .stars::after {
+      opacity: 0.3;
+    }
+  }
+  
+  /* Tablets (481px - 768px) */
+  @media (min-width: 481px) and (max-width: 768px) {
+    .stars {
+      opacity: 0.8;
+    }
+    
+    .stars::before {
+      opacity: 0.6;
+    }
+    
+    .stars::after {
+      opacity: 0.4;
+    }
+  }
+  
+  /* Tablets grandes e laptops pequenos (769px - 1024px) */
+  @media (min-width: 769px) and (max-width: 1024px) {
+    .stars {
+      opacity: 0.9;
+    }
+    
+    .stars::before {
+      opacity: 0.7;
+    }
+    
+    .stars::after {
+      opacity: 0.5;
+    }
+  }
+  
+  /* Desktops (1025px - 1440px) */
+  @media (min-width: 1025px) and (max-width: 1440px) {
+    .stars {
+      opacity: 1;
+    }
+    
+    .stars::before {
+      opacity: 0.8;
+    }
+    
+    .stars::after {
+      opacity: 0.6;
+    }
+  }
+  
+  /* Telas grandes (1441px - 1920px) */
+  @media (min-width: 1441px) and (max-width: 1920px) {
+    .stars {
+      opacity: 1;
+    }
+    
+    .stars::before {
+      opacity: 0.9;
+    }
+    
+    .stars::after {
+      opacity: 0.7;
+    }
+  }
+  
+  /* Telas muito grandes (acima de 1920px) */
+  @media (min-width: 1921px) {
+    .stars {
+      opacity: 1;
+    }
+    
+    .stars::before {
+      opacity: 1;
+    }
+    
+    .stars::after {
+      opacity: 0.8;
+    }
+  }
+  
+  /* Telas ultrawide - mantém as estrelas mas com densidade controlada */
+  @media (min-aspect-ratio: 21/9) {
+    .stars::after {
+      opacity: 0.4;
+    }
+  }
+  
+  /* Orientação paisagem em mobile */
+  @media (max-height: 500px) and (orientation: landscape) {
+    .stars {
+      opacity: 0.7;
+    }
+    
+    .stars::before {
+      opacity: 0.5;
+    }
+    
+    .stars::after {
+      opacity: 0.3;
+    }
+  }
+  
+  /* Modo escuro/claro - ajuste automático */
+  @media (prefers-color-scheme: dark) {
+    .stars,
+    .stars::before,
+    .stars::after {
+      filter: brightness(1.1);
+    }
+  }
+  
+  /* Redução de movimento para acessibilidade */
+  @media (prefers-reduced-motion: reduce) {
+    .stars,
+    .stars::before,
+    .stars::after {
+      animation: none;
+    }
+  }
+  
+  /* Alto contraste */
+  @media (prefers-contrast: high) {
+    .stars,
+    .stars::before,
+    .stars::after {
+      filter: contrast(1.5);
+    }
+  }

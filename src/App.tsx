@@ -1,14 +1,17 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import StarWarsOpening from './components/StarWarsOpening'
-import Home from './pages/AboutMe'
+import RootLayout from './components/RootLayout'
+import AboutMe from './pages/AboutMe'
 
 const App: React.FC = () => {
   return (
     <Router>
       <Routes>
         <Route path="/" element={<StarWarsOpening />} />
-        <Route path="/home" element={<Home />} />
+        <Route element={<RootLayout />}>
+          <Route path="/home" element={<AboutMe />} />
+        </Route>
       </Routes>
     </Router>
   )

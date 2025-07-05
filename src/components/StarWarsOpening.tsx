@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import './StarWarsOpening.css';
+import '@/css/StarWarsOpening.css';
 import Hyperscape from './Hyperscape';
 
 const StarWarsOpening: React.FC = () => {
