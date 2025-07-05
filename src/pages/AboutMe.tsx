@@ -1,9 +1,16 @@
-import React from "react"
+import React, { useState } from "react"
 import "../css/about-me.css"
+import BB8 from "../components/bb8"
 
 type AboutMeProps = {}
 
 const AboutMe: React.FC<AboutMeProps> = () => {
+  const [isJediMode, setIsJediMode] = useState(true)
+
+  const handleToggleMode = () => {
+    setIsJediMode(!isJediMode)
+  }
+
   return (
     <div className="about-container">
       {/* Main Content */}
@@ -40,11 +47,9 @@ const AboutMe: React.FC<AboutMeProps> = () => {
         </div>
       </div>
 
-      {/* BB8 Placeholder Card */}
+      {/* BB8 Component */}
       <div className="bb8-placeholder">
-        <div className="placeholder-content">
-          <span>BB8 Component</span>
-        </div>
+        <BB8 isJediMode={isJediMode} onToggle={handleToggleMode} />
       </div>
     </div>
   )

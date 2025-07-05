@@ -134,32 +134,15 @@
   text-shadow: 0 0 5px rgba(254, 211, 79, 0.3);
 }
 
-/* BB8 Placeholder */
+/* BB8 Component */
 .bb8-placeholder {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
   z-index: 1000;
-  width: 80px;
-  height: 80px;
-}
-
-.placeholder-content {
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  border: 2px dashed #fed34f;
-  border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fed34f;
-  font-size: 0.7rem;
-  text-align: center;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-  backdrop-filter: blur(10px);
-  opacity: 0.7;
 }
 
 /* Responsive Design */
@@ -201,12 +184,6 @@
   .bb8-placeholder {
     bottom: 1rem;
     right: 1rem;
-    width: 60px;
-    height: 60px;
-  }
-
-  .placeholder-content {
-    font-size: 0.6rem;
   }
 }
 
