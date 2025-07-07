@@ -1,14 +1,15 @@
 import styled from 'styled-components';
 
-interface SwitchProps {
-  isJediMode: boolean;
-  onToggle: () => void;
+interface BB8Props {
+  mode: 'light' | 'dark';
 }
 
-const Switch: React.FC<SwitchProps> = ({ isJediMode, onToggle }) => {
+const BB8: React.FC<BB8Props> = ({ mode }) => {
+  const isJediMode = mode === 'light';
+  
   return (
     <StyledWrapper>
-      <div className="bb8-toggle" onClick={onToggle}>
+      <div className="bb8-toggle">
         <input 
           className="bb8-toggle__checkbox" 
           type="checkbox" 
@@ -1064,4 +1065,4 @@ const StyledWrapper = styled.div`
   }
 `;
 
-export default Switch;
+export default BB8;

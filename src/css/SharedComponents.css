@@ -116,23 +116,49 @@ html, body {
   width: 100vw;
 }
 
+/* ===== BB8 IN NAVBAR ===== */
+.navbar-bb8 {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  margin-right: 1rem;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.navbar-bb8:hover {
+  transform: scale(1.05);
+}
+
+.navbar-bb8 .bb8-toggle {
+  transform: scale(0.8);
+}
+
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
   .navbar {
     min-height: 90px;
     height: 110px;
     padding: 0.5rem 1rem;
+    justify-content: space-between;
   }
   
   .navbar .navbar-left {
     display: none;
   }
+  
   .navbar-links {
-    gap: 0.5rem;
+    display: none;
   }
-  .nav-btn {
-    font-size: 0.95rem;
-    padding: 0.4rem 0.8rem;
+  
+  .navbar-bb8 {
+    margin-left: auto;
+    margin-right: 0;
+  }
+  
+  .navbar-bb8 .bb8-toggle {
+    transform: scale(0.7);
   }
 }
 

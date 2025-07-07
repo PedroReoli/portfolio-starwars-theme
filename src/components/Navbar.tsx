@@ -1,16 +1,36 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FaUserAstronaut, FaTools, FaBriefcase, FaEnvelope } from 'react-icons/fa';
+import BB8 from './bb8';
 import '@/css/SharedComponents.css';
 
 const Navbar: React.FC = () => {
   const navigate = useNavigate();
+  const [mode, setMode] = useState<'light' | 'dark'>('light');
+  const [isMobile, setIsMobile] = useState(false);
+
+  const handleToggleMode = () => {
+    setMode(mode === 'light' ? 'dark' : 'light');
+  };
+
+  // Função ShowBB8 - controla visibilidade baseada no screen width
+  useEffect(() => {
+    const checkScreenWidth = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkScreenWidth();
+    window.addEventListener('resize', checkScreenWidth);
+    return () => window.removeEventListener('resize', checkScreenWidth);
+  }, []);
+
+
 
   return (
     <nav className="navbar">
       {/* Logo Star Wars à esquerda */}
       <div className="navbar-logo" style={{ cursor: 'pointer', display: 'flex', alignItems: 'center' }} onClick={() => navigate('/home')}>
-      <svg 
+        <svg 
           version="1.0" 
           xmlns="http://www.w3.org/2000/svg" 
           xmlnsXlink="http://www.w3.org/1999/xlink" 
@@ -108,13 +128,23 @@ const Navbar: React.FC = () => {
           </g>
         </svg>
       </div>
-      {/* Botões de navegação */}
-      <div className="navbar-links">
-        <button className="nav-btn" onClick={() => navigate('/home')}><FaUserAstronaut className="nav-icon" /> About Me</button>
-        <button className="nav-btn" onClick={() => navigate('/skills')}><FaTools className="nav-icon" /> Skills</button>
-        <button className="nav-btn" onClick={() => navigate('/experience')}><FaBriefcase className="nav-icon" /> Experience</button>
-        <button className="nav-btn" onClick={() => navigate('/contact')}><FaEnvelope className="nav-icon" /> Contact</button>
-      </div>
+
+      {/* BB8 Component - apenas em mobile */}
+      {isMobile && (
+        <div className="navbar-bb8" onClick={handleToggleMode}>
+          <BB8 mode={mode} />
+        </div>
+      )}
+
+      {/* Botões de navegação - apenas em desktop */}
+      {!isMobile && (
+        <div className="navbar-links">
+          <button className="nav-btn" onClick={() => navigate('/home')}><FaUserAstronaut className="nav-icon" /> About Me</button>
+          <button className="nav-btn" onClick={() => navigate('/skills')}><FaTools className="nav-icon" /> Skills</button>
+          <button className="nav-btn" onClick={() => navigate('/experience')}><FaBriefcase className="nav-icon" /> Experience</button>
+          <button className="nav-btn" onClick={() => navigate('/contact')}><FaEnvelope className="nav-icon" /> Contact</button>
+        </div>
+      )}
     </nav>
   );
 };

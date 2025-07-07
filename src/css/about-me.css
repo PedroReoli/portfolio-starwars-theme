@@ -143,6 +143,23 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.bb8-placeholder:hover {
+  transform: scale(1.05);
+}
+
+/* Desktop only BB8 */
+.desktop-only {
+  display: flex;
+}
+
+@media (max-width: 768px) {
+  .desktop-only {
+    display: none;
+  }
 }
 
 /* Responsive Design */

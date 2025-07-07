@@ -52,6 +52,10 @@ src/
 2. **Background**: Sistema de estrelas com tsParticles (400 estrelas com efeito twinkle)
 3. **RootLayout**: Estrutura base da aplicação
 
+### 📄 Páginas Criadas
+1. **AboutMe**: Página sobre mim com layout de cards e componente BB-8
+2. **Skills**: Página de habilidades com categorias temáticas Star Wars e sistema de filtros
+
 ### 🔄 Potenciais Reutilizáveis
 1. **Cards**: Foto, descrição, seções
 2. **Botões**: Interações e navegação
@@ -66,6 +70,7 @@ src/
 - **Sith**: #8b0000 (vermelho escuro)
 - **Fundo**: #0a0a0a (preto)
 - **Cards**: #1a1a1a (cinza escuro)
+- **Skills Cards**: #2a2a2a (cinza médio)
 
 ### 🌟 Animações
 - **Stars**: 400 estrelas com tsParticles, efeito twinkle e distribuição automática

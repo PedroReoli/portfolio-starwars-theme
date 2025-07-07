@@ -5,10 +5,10 @@ import BB8 from "../components/bb8"
 type AboutMeProps = {}
 
 const AboutMe: React.FC<AboutMeProps> = () => {
-  const [isJediMode, setIsJediMode] = useState(true)
+  const [mode, setMode] = useState<'light' | 'dark'>('light')
 
   const handleToggleMode = () => {
-    setIsJediMode(!isJediMode)
+    setMode(mode === 'light' ? 'dark' : 'light')
   }
 
   return (
@@ -47,9 +47,9 @@ const AboutMe: React.FC<AboutMeProps> = () => {
         </div>
       </div>
 
-      {/* BB8 Component */}
-      <div className="bb8-placeholder">
-        <BB8 isJediMode={isJediMode} onToggle={handleToggleMode} />
+      {/* BB8 Component - apenas em desktop */}
+      <div className="bb8-placeholder desktop-only" onClick={handleToggleMode}>
+        <BB8 mode={mode} />
       </div>
     </div>
   )

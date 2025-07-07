@@ -14,13 +14,36 @@
 - [x] Implementar sistema de estrelas com tsParticles (400 estrelas com efeito twinkle)
 - [x] Atualizar fundo para preto sólido
 
+### v1.1 - Sprint 1 - Página de Skills
+- [x] Instalar biblioteca react-icons
+- [x] Criar página Skills.tsx com categorias temáticas Star Wars
+- [x] Implementar sistema de filtros por categoria
+- [x] Criar estilos skills.css com layout responsivo
+- [x] Adicionar rota /skills no App.tsx
+- [x] Integrar ícones para todas as tecnologias
+- [x] Implementar progress bars animadas
+- [x] Adicionar efeitos hover e animações
+- [x] Testar responsividade mobile e tablet
+
+### v1.2 - Sprint 1 - Refatoração da Página Skills
+- [x] Refatorar layout para estrutura como AboutMe (card esquerda/direita)
+- [x] Converter componente Yoda de SCSS para TSX
+- [x] Converter componente Boba Fett de HAML para TSX
+- [x] Criar CSS para componentes Yoda e Boba Fett
+- [x] Implementar filtros verticais no card esquerda
+- [x] Integrar componentes temáticos na interface
+- [x] Atualizar responsividade para novo layout
+- [x] Manter paleta de cores temáticas Star Wars
+
 ## 🔄 Tarefas Pendentes
 
-### v1.1 - Sprint 1 - Melhorias
+### v1.3 - Sprint 1 - Melhorias
 - [ ] Identificar outros componentes reutilizáveis
 - [ ] Migrar estilos de cards e botões comuns
 - [ ] Criar variáveis CSS para cores e espaçamentos
 - [ ] Implementar sistema de temas (Jedi/Sith)
+- [ ] Otimizar performance das animações
+- [ ] Adicionar mais skills conforme necessário
 
 ### v2.0 - Sprint 2 - Componentização
 - [ ] Criar componentes reutilizáveis para cards
