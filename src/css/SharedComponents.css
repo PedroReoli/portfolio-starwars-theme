@@ -180,4 +180,39 @@ html, body {
   transform: scale(1.12);
   filter: drop-shadow(0 0 12px #ffe81f);
   cursor: pointer;
+}
+
+/* ===== NAVBAR RESPONSIVE ===== */
+.navbar-responsive {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .navbar-responsive {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background: rgba(10, 10, 10, 0.95);
+    border-bottom: 1px solid #333;
+    padding: 0.3rem 0;
+    position: sticky;
+    top: 84px;
+    z-index: 999;
+  }
+  .nav-btn-responsive {
+    background: none;
+    border: none;
+    color: #ffe81f;
+    font-size: 1.5rem;
+    padding: 0.4rem 0.7rem;
+    border-radius: 50%;
+    transition: background 0.2s, color 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .nav-btn-responsive:focus, .nav-btn-responsive:hover {
+    background: #ffe81f;
+    color: #111;
+  }
 } 

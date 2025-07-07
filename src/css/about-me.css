@@ -243,4 +243,14 @@
   .stars {
     display: none !important;
   }
+}
+
+.mobile-hide {
+  display: block;
+}
+
+@media (max-width: 768px) {
+  .mobile-hide {
+    display: none !important;
+  }
 } 

@@ -16,7 +16,7 @@ const AboutMe: React.FC<AboutMeProps> = () => {
       {/* Main Content */}
       <div className="about-content">
         {/* Photo Card */}
-        <div className="photo-card">
+        <div className="photo-card mobile-hide">
           <div className="photo-container">
             <img src="/placeholder.svg?height=400&width=300" alt="Pedro Lucas" className="profile-photo" />
           </div>
