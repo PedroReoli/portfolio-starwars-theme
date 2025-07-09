@@ -12,6 +12,13 @@
   font-family: "News Cycle", Arial, sans-serif;
   overflow: hidden;
 }
+@media (max-width: 767px) {
+  .about-container {
+    padding: 0 1rem 1rem 1rem;
+    min-height: unset;
+  }
+}
+
 
 /* Background Stars */
 .background-stars {
@@ -178,7 +185,11 @@
 
 @media (max-width: 768px) {
   .about-container {
-    padding: 1rem;
+    padding: 0 1rem 1rem 1rem;
+  }
+
+  .about-content {
+    margin-top: 0;
   }
 
   .photo-card,

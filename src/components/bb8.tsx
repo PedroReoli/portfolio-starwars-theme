@@ -256,55 +256,17 @@ const StyledWrapper = styled.div`
     position: absolute;
     width: 0.563em;
     height: 0.563em;
-    background: -o-radial-gradient(
-        0.25em 0.375em,
-        0.125em circle,
-        red,
-        transparent
-      ),
-      -o-radial-gradient(0.375em 0.188em, 0.063em circle, var(--bb8-bg) 50%, transparent
-            100%),
-      -o-linear-gradient(45deg, #000 0.188em, dimgray 0.313em 0.375em, #000 0.5em);
-    background: -o-radial-gradient(
-        0.25em 0.375em,
-        0.125em circle,
-        red,
-        transparent
-      ),
-      -o-radial-gradient(0.375em 0.188em, 0.063em circle, var(--bb8-bg) 50%, transparent
-            100%),
-      -o-linear-gradient(45deg, #000 0.188em, dimgray 0.313em 0.375em, #000 0.5em);
-    background: -o-radial-gradient(
-        0.25em 0.375em,
-        0.125em circle,
-        red,
-        transparent
-      ),
-      -o-radial-gradient(0.375em 0.188em, 0.063em circle, var(--bb8-bg) 50%, transparent
-            100%),
-      -o-linear-gradient(45deg, #000 0.188em, dimgray 0.313em 0.375em, #000 0.5em);
-    background: -o-radial-gradient(
-        0.25em 0.375em,
-        0.125em circle,
-        red,
-        transparent
-      ),
-      -o-radial-gradient(0.375em 0.188em, 0.063em circle, var(--bb8-bg) 50%, transparent
-            100%),
-      -o-linear-gradient(45deg, #000 0.188em, dimgray 0.313em 0.375em, #000 0.5em);
+    /* Olho preto em ambos os modos */
+    background: radial-gradient(circle at 0.25em 0.375em, #000 0.125em, transparent 0.126em),
+      radial-gradient(circle at 0.375em 0.188em, var(--bb8-bg) 0.063em, transparent 0.064em),
+      linear-gradient(45deg, #000 0.188em, dimgray 0.313em 0.375em, #000 0.5em);
     border-radius: var(--radius);
     top: 0.413em;
     left: 50%;
-    -webkit-transform: translate(-50%);
-    -ms-transform: translate(-50%);
     transform: translate(-50%);
-    -webkit-box-shadow: 0 0 0 0.089em lightgray, 0.563em 0.281em 0 -0.148em,
-      0.563em 0.281em 0 -0.1em var(--bb8-bg), 0.563em 0.281em 0 -0.063em;
     box-shadow: 0 0 0 0.089em lightgray, 0.563em 0.281em 0 -0.148em,
       0.563em 0.281em 0 -0.1em var(--bb8-bg), 0.563em 0.281em 0 -0.063em;
     z-index: 1;
-    -webkit-transition: var(--transition);
-    -o-transition: var(--transition);
     transition: var(--transition);
   }
 
