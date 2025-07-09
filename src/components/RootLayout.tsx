@@ -7,12 +7,29 @@ import '../css/stars.css';
 
 const RootLayout: React.FC = () => {
   return (
-    <div className="root-layout">
+    <div 
+      className="root-layout" 
+      style={{
+        minHeight: '100vh',
+        width: '100%',
+        display: 'flex',
+        flexDirection: 'column'
+      }}
+    >
       <div className="stars" />
-      <div className="root-content">
+      <div 
+        className="root-content"
+        style={{
+          flex: 1,
+          display: 'flex',
+          flexDirection: 'column'
+        }}
+      >
         <Navbar />
         <NavbarResponsive />
-        <Outlet />
+        <main style={{ flex: 1 }}>
+          <Outlet />
+        </main>
       </div>
     </div>
   );
