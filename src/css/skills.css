@@ -278,6 +278,92 @@
   font-weight: 500;
 }
 
+/* --- LEFT CARD NOVO LAYOUT (category-v2) --- */
+.left-card.category-v2 {
+  background: #1a1a1a;
+  border: 2px solid #4bd5ee;
+  border-radius: 15px;
+  padding: 28px 18px 22px 18px;
+  box-shadow: 0 8px 32px rgba(75, 213, 238, 0.10);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 240px;
+  max-width: 320px;
+  width: 100%;
+  justify-content: flex-start;
+  gap: 32px;
+}
+
+.bb8-toggle-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+}
+.bb8-toggle-label {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: #4bd5ee;
+  margin-bottom: 6px;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+.bb8-toggle-btn {
+  background: #232323;
+  border: 1.5px solid #4bd5ee;
+  border-radius: 12px;
+  padding: 12px 0 8px 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  cursor: pointer;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.bb8-toggle-btn:hover {
+  box-shadow: 0 0 0 2px #4bd5ee44;
+  transform: scale(1.03);
+}
+
+.tools-softskills-row-v2 {
+  display: flex;
+  flex-direction: row;
+  gap: 18px;
+  width: 100%;
+  justify-content: center;
+  margin-top: 8px;
+}
+.square-btn-v2 {
+  background: #232323;
+  border: 1.5px solid #fed34f;
+  border-radius: 10px;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: box-shadow 0.2s, background 0.2s;
+  font-size: 1.1rem;
+  gap: 8px;
+}
+.square-btn-v2.active, .square-btn-v2:hover {
+  background: #fed34f22;
+  box-shadow: 0 0 0 2px #fed34f55;
+}
+.square-icon-v2 {
+  font-size: 2.2rem;
+  color: #fed34f;
+}
+.square-label-v2 {
+  font-size: 1.08rem;
+  color: #fed34f;
+  font-weight: 600;
+}
+
 /* Responsive Design */
 @media (max-width: 1024px) {
   .main-content {
@@ -333,5 +419,39 @@
     flex-direction: column;
     text-align: center;
     gap: 10px;
+  }
+} 
+
+@media (max-width: 900px) {
+  .left-card.category-v2 {
+    min-width: 180px;
+    max-width: 100vw;
+    padding: 18px 6px 14px 6px;
+    gap: 18px;
+  }
+  .tools-softskills-row-v2 {
+    gap: 10px;
+  }
+  .square-btn-v2 {
+    width: 70px;
+    height: 70px;
+    font-size: 0.95rem;
+  }
+  .square-icon-v2 {
+    font-size: 1.4rem;
+  }
+}
+@media (max-width: 600px) {
+  .left-card.category-v2 {
+    padding: 10px 2px 8px 2px;
+    gap: 10px;
+  }
+  .square-btn-v2 {
+    width: 48px;
+    height: 48px;
+    font-size: 0.8rem;
+  }
+  .square-icon-v2 {
+    font-size: 1.1rem;
   }
 } 

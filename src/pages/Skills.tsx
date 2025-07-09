@@ -32,8 +32,17 @@ const Skills: React.FC = () => {
   const [bb8Mode, setBb8Mode] = useState<'light' | 'dark'>('light')
 
   const handleToggleMode = () => {
-    setBb8Mode(bb8Mode === 'light' ? 'dark' : 'light')
+    if (selectedCategory === 'frontend') {
+      setSelectedCategory('backend')
+      setBb8Mode('dark')
+    } else {
+      setSelectedCategory('frontend')
+      setBb8Mode('light')
+    }
   }
+
+  const handleSelectTools = () => setSelectedCategory('tools')
+  const handleSelectSoftSkills = () => setSelectedCategory('soft-skills')
 
   const skills: Skill[] = [
     // Frontend (Lado Claro)
@@ -107,57 +116,27 @@ const Skills: React.FC = () => {
 
         {/* Main Content */}
         <div className="main-content">
-          {/* Left Card - Filters and BB-8 */}
-          <div className="left-card">
-            {/* Category Filters */}
-            <div className="filters-section">
-              <h3 className="filters-title">Categories</h3>
-              <div className="filters-grid">
-                <button 
-                  className={`filter-btn ${selectedCategory === "frontend" ? "active" : ""}`}
-                  onClick={() => setSelectedCategory("frontend")}
-                >
-                  <span className="filter-icon">⚡</span>
-                  <span className="filter-text">Frontend</span>
-                </button>
-                <button 
-                  className={`filter-btn ${selectedCategory === "backend" ? "active" : ""}`}
-                  onClick={() => setSelectedCategory("backend")}
-                >
-                  <span className="filter-icon">🌑</span>
-                  <span className="filter-text">Backend</span>
-                </button>
-                <button 
-                  className={`filter-btn ${selectedCategory === "tools" ? "active" : ""}`}
-                  onClick={() => setSelectedCategory("tools")}
-                >
-                  <span className="filter-icon">🛠️</span>
-                  <span className="filter-text">Tools</span>
-                </button>
-                <button 
-                  className={`filter-btn ${selectedCategory === "soft-skills" ? "active" : ""}`}
-                  onClick={() => setSelectedCategory("soft-skills")}
-                >
-                  <span className="filter-icon">✨</span>
-                  <span className="filter-text">Soft Skills</span>
-                </button>
+          {/* Left Card - NOVO LAYOUT */}
+          <div className="left-card category-v2">
+            <div className="bb8-toggle-area">
+              <div className="bb8-toggle-label">{bb8Mode === "light" ? "Frontend" : "Backend"}</div>
+              <div className="bb8-toggle-btn" onClick={handleToggleMode} title="Alternar Frontend/Backend">
+                <BB8 mode={bb8Mode} />
               </div>
             </div>
-
-            {/* BB-8 Component */}
-            <div className="bb8-section">
-              <div className="bb8-card">
-                <h4 className="bb8-title">
-                  {bb8Mode === "light" ? "Light Side" : "Dark Side"}
-                </h4>
-                <div className="bb8-placeholder desktop-only" onClick={handleToggleMode}>
-                  <BB8 mode={bb8Mode} />
-                </div>
+            <div className="tools-softskills-row-v2">
+              <div className={`square-btn-v2 ${selectedCategory === "tools" ? "active" : ""}`} onClick={handleSelectTools}>
+                <span className="square-icon-v2">🛠️</span>
+                <span className="square-label-v2">Tools</span>
+              </div>
+              <div className={`square-btn-v2 ${selectedCategory === "soft-skills" ? "active" : ""}`} onClick={handleSelectSoftSkills}>
+                <span className="square-icon-v2">✨</span>
+                <span className="square-label-v2">Soft Skills</span>
               </div>
             </div>
           </div>
 
-          {/* Right Card - Skills Content */}
+          {/* Right Card - NÃO ALTERAR */}
           <div className="right-card">
             <div className="content-header">
               <h2 className="category-title">{getCategoryTitle(selectedCategory)}</h2>
@@ -168,7 +147,6 @@ const Skills: React.FC = () => {
                 {selectedCategory === "soft-skills" && "The Force that guides successful development teams"}
               </p>
             </div>
-
             <div className="skills-grid">
               {filteredSkills.map((skill, index) => (
                 <div key={index} className="skill-card">
